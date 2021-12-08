@@ -1,3 +1,9 @@
+/*
+ * Luke T
+ * SignUpClient.java
+ * 07/12/21 
+ */
+
 package grpc.ca.SignUp;
 
 //import java.io.IOException;
@@ -15,7 +21,6 @@ import io.grpc.stub.StreamObserver;
 
 public class SignUpClient {
 
-	
 	private static signUpStub asyncStub;
 
 	public static void main(String[] args) throws InterruptedException {
@@ -29,7 +34,6 @@ public class SignUpClient {
 		asyncStub = signUpGrpc.newStub(channel1);
 
 		try {
-			
 
 			// client streaming
 			System.out.println("--Client streaming--");
@@ -41,23 +45,17 @@ public class SignUpClient {
 			channel1.shutdown().awaitTermination(60, TimeUnit.SECONDS);
 		}
 	}
-		
-	
 
 	// client streaming
 	public static void getSignUp() {
 
-
 		StreamObserver<HelloReply3> responseObserver = new StreamObserver<HelloReply3>() {
-
-			
 
 			@Override
 			public void onNext(HelloReply3 value) {
-				
-				
+
 				System.out.println("Confirmation: " + value.getMessage3());
-				 
+
 			}
 
 			@Override
@@ -79,7 +77,7 @@ public class SignUpClient {
 
 			Thread.sleep(2000);
 			String name = JOptionPane.showInputDialog(null, "What is your name?");
-			
+
 			requestObserver.onNext(HelloRequest3.newBuilder().setName3(name).build());
 
 			Thread.sleep(500);
@@ -99,11 +97,10 @@ public class SignUpClient {
 
 		} catch (RuntimeException e) {
 			e.printStackTrace();
-		}catch (InterruptedException e) {
+		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 
 	}
 
 }
-
