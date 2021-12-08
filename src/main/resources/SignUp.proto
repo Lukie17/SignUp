@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "grpc.ca.SignUp";
+option java_outer_classname = "SignUpImpl";
+
+service signUp{
+
+	// client streaming
+	rpc GetSignUp(stream HelloRequest3) returns (HelloReply3){}
+
+}
+
+message HelloRequest3 {
+	string name3 = 1;
+}
+
+message HelloReply3 {
+	string message3 = 1;
+}
