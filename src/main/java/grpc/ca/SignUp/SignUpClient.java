@@ -6,13 +6,12 @@
 
 package grpc.ca.SignUp;
 
-//import java.io.IOException;
+
 import java.util.concurrent.TimeUnit;
 
 import javax.jmdns.ServiceInfo;
 import javax.swing.JOptionPane;
 
-//import grpc.ca.SignUp.signUpGrpc.signUpBlockingStub;
 import grpc.ca.SignUp.signUpGrpc.signUpStub;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
@@ -77,19 +76,18 @@ public class SignUpClient {
 
 			Thread.sleep(2000);
 			String name = JOptionPane.showInputDialog(null, "What is your name?");
-
+			JOptionPane.showMessageDialog(null, "Your name is " + name);
 			requestObserver.onNext(HelloRequest3.newBuilder().setName3(name).build());
-
 			Thread.sleep(500);
 
 			String dateOfBirth = JOptionPane.showInputDialog(null, "What is your date of birth?");
 			requestObserver.onNext(HelloRequest3.newBuilder().setName3(dateOfBirth).build());
-
+			JOptionPane.showMessageDialog(null, "Your date of birth is " + dateOfBirth);
 			Thread.sleep(500);
 
 			String email = JOptionPane.showInputDialog(null, "What is your email?");
 			requestObserver.onNext(HelloRequest3.newBuilder().setName3(email).build());
-
+			JOptionPane.showMessageDialog(null, "Your email is " + email);
 			Thread.sleep(500);
 
 			requestObserver.onCompleted();

@@ -46,9 +46,6 @@ public class SignUpServer extends signUpImplBase {
 
 		System.out.println("Inside streaming implementation");
 
-		// String signUpQuestion = JOptionPane.showInputDialog(null, "Do you want to
-		// sign up?", "choose one", JOptionPane.YES_NO_CANCEL_OPTION);
-		// if(signUpQuestion == "Yes") {
 		return new StreamObserver<HelloRequest3>() {
 
 			@Override
