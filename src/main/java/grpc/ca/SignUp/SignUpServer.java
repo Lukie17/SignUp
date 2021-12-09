@@ -25,7 +25,7 @@ public class SignUpServer extends signUpImplBase {
 		JmDNSRegistration reg = new JmDNSRegistration();
 
 		System.out.println("Starting gRPC Sign Up Server");
-		reg.run("_signUp._tcp.local.", "signUp", 50052, "Running signUp");
+		reg.run("_signUp._tcp.local.", "Sign Up", 50052, "running Sign Up");
 
 		try {
 			Server server;
