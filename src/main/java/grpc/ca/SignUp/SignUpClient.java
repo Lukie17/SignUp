@@ -26,9 +26,9 @@ public class SignUpClient {
 
 		String host = "localhost";
 
-		ServiceInfo serviceInfo1 = JmDNSDiscovery.run("_signUp._tcp.local.");
+		ServiceInfo serviceInfo = JmDNSDiscovery.run("_signUp._tcp.local.");
 
-		ManagedChannel channel1 = ManagedChannelBuilder.forAddress(host, serviceInfo1.getPort()).usePlaintext().build();
+		ManagedChannel channel1 = ManagedChannelBuilder.forAddress(host, serviceInfo.getPort()).usePlaintext().build();
 
 		asyncStub = signUpGrpc.newStub(channel1);
 
@@ -88,7 +88,7 @@ public class SignUpClient {
 			String email = JOptionPane.showInputDialog(null, "What is your email?");
 			requestObserver.onNext(HelloRequest3.newBuilder().setName3(email).build());
 			JOptionPane.showMessageDialog(null, "Your email is " + email);
-			Thread.sleep(500);
+			Thread.sleep(5000);
 
 			requestObserver.onCompleted();
 			Thread.sleep(10000);

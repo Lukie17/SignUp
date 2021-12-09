@@ -19,13 +19,13 @@ public class SignUpServer extends signUpImplBase {
 
 	public static void main(String[] args) throws InterruptedException {
 
-		int port = 50052;
+		int port = 50054;
 		SignUpServer server1 = new SignUpServer();
 
 		JmDNSRegistration reg = new JmDNSRegistration();
 
 		System.out.println("Starting gRPC Sign Up Server");
-		reg.run("_signUp._tcp.local.", "Sign Up", 50052, "running Sign Up");
+		reg.run("_signUp._tcp.local.", "signUp", 50054, "running signUp");
 
 		try {
 			Server server;
@@ -70,7 +70,7 @@ public class SignUpServer extends signUpImplBase {
 			public void onCompleted() {
 
 				try {
-					Thread.sleep(500);
+					Thread.sleep(8000);
 				} catch (InterruptedException e) {
 
 					e.printStackTrace();

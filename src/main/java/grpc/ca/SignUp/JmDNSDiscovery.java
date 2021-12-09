@@ -12,7 +12,7 @@ public class JmDNSDiscovery {
 
 	public static ServiceInfo run(String serviceType) throws InterruptedException {
 
-		ServiceInfo serviceInfo1 = null;
+		ServiceInfo serviceInfo = null;
 		try {
 			MyServiceListener listener = new MyServiceListener();
 			JmDNS jmdns = JmDNS.create(InetAddress.getLocalHost());
@@ -20,7 +20,7 @@ public class JmDNSDiscovery {
 
 			Thread.sleep(10000);
 
-			serviceInfo1 = listener.getServiceInfo1();
+			serviceInfo = listener.getServiceInfo();
 
 			System.out.println("Client started");
 
@@ -29,21 +29,21 @@ public class JmDNSDiscovery {
 			e.printStackTrace();
 		}
 
-		return serviceInfo1;
+		return serviceInfo;
 	}
 
 	public static class MyServiceListener implements ServiceListener {
 
 		int port;
-		ServiceInfo serviceInfo1;
+		ServiceInfo serviceInfo;
 
 		public void serviceAdded(ServiceEvent event) {
 
-			ServiceInfo serviceInfo1 = event.getInfo();
-			this.port = serviceInfo1.getPort();
-			this.serviceInfo1 = serviceInfo1;
+			ServiceInfo serviceInfo = event.getInfo();
+			this.port = serviceInfo.getPort();
+			this.serviceInfo = serviceInfo;
 
-			System.out.println("Running on port: " + serviceInfo1.getPort());
+			System.out.println("Running on port: " + serviceInfo.getPort());
 			System.out.println("Service added: " + event.getInfo());
 		}
 
@@ -54,11 +54,11 @@ public class JmDNSDiscovery {
 
 		public void serviceResolved(ServiceEvent event) {
 
-			ServiceInfo serviceInfo1 = event.getInfo();
-			this.port = serviceInfo1.getPort();
-			this.serviceInfo1 = serviceInfo1;
+			ServiceInfo serviceInfo = event.getInfo();
+			this.port = serviceInfo.getPort();
+			this.serviceInfo = serviceInfo;
 
-			System.out.println("Running on port: " + serviceInfo1.getPort());
+			System.out.println("Running on port: " + serviceInfo.getPort());
 			System.out.println("Service resolved: " + event.getInfo());
 		}
 
@@ -66,8 +66,8 @@ public class JmDNSDiscovery {
 			return port;
 		}
 
-		public ServiceInfo getServiceInfo1() {
-			return serviceInfo1;
+		public ServiceInfo getServiceInfo() {
+			return serviceInfo;
 		}
 
 	}
