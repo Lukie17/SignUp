@@ -6,7 +6,6 @@
 
 package grpc.ca.SignUp;
 
-
 import java.util.concurrent.TimeUnit;
 
 import javax.jmdns.ServiceInfo;
@@ -18,10 +17,12 @@ import io.grpc.ManagedChannelBuilder;
 import io.grpc.StatusRuntimeException;
 import io.grpc.stub.StreamObserver;
 
+//class
 public class SignUpClient {
 
 	private static signUpStub asyncStub;
 
+	// main method
 	public static void main(String[] args) throws InterruptedException {
 
 		String host = "localhost";
