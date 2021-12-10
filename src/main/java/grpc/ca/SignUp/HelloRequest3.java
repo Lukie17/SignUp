@@ -4,6 +4,10 @@
 package grpc.ca.SignUp;
 
 /**
+ * <pre>
+ *client streaming
+ * </pre>
+ *
  * Protobuf type {@code HelloRequest3}
  */
 public  final class HelloRequest3 extends
@@ -271,6 +275,10 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   *client streaming
+   * </pre>
+   *
    * Protobuf type {@code HelloRequest3}
    */
   public static final class Builder extends

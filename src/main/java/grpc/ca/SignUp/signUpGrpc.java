@@ -88,7 +88,7 @@ public final class signUpGrpc {
 
     /**
      * <pre>
-     * client streaming
+     *client streaming
      * </pre>
      */
     public io.grpc.stub.StreamObserver<grpc.ca.SignUp.HelloRequest3> getSignUp(
@@ -129,7 +129,7 @@ public final class signUpGrpc {
 
     /**
      * <pre>
-     * client streaming
+     *client streaming
      * </pre>
      */
     public io.grpc.stub.StreamObserver<grpc.ca.SignUp.HelloRequest3> getSignUp(

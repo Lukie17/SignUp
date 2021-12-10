@@ -17,15 +17,15 @@ import io.grpc.stub.StreamObserver;
 
 public class SignUpServer extends signUpImplBase {
 
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws InterruptedException, IOException {
 
-		int port = 50054;
+		int port = 50052;
 		SignUpServer server1 = new SignUpServer();
 
 		JmDNSRegistration reg = new JmDNSRegistration();
 
 		System.out.println("Starting gRPC Sign Up Server");
-		reg.run("_signUp._tcp.local.", "signUp", 50054, "running signUp");
+		reg.run("_signUp._tcp.local.", "signUp", port, "signUp");
 
 		try {
 			Server server;
@@ -40,7 +40,8 @@ public class SignUpServer extends signUpImplBase {
 		}
 
 	}
-
+	
+	// client streaming
 	@Override
 	public StreamObserver<HelloRequest3> getSignUp(StreamObserver<HelloReply3> responseObserver) {
 
@@ -58,6 +59,7 @@ public class SignUpServer extends signUpImplBase {
 				}
 				System.out.println("Message received from client: " + request3.getName3());
 
+				
 			}
 
 			@Override
